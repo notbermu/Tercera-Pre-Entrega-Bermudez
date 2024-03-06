@@ -1,0 +1,39 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+
+Search your favourite player
+
+{% endblock %}
+
+
+{% block formularios %}
+
+
+<p>
+    <h2> Players: </h2>
+
+    <form action="/PageApp/SearchPlayers/" method="GET">
+        
+        <input type="text" name="name">
+
+        <input type="submit" value="Search">
+
+    </form>
+</p>
+<p>{{message}}</p>
+
+<ul>
+{% for Players in players %}
+    <li>{{Players.name}}</li>
+    <li>{{Players.age}}</li>
+    <li>{{Players.sport}}</li>
+    <li>{{Players.country}}</li>
+    <li>{{Players.team}}</li>
+
+    <p></p>
+{% endfor %}
+</ul>
+{% endblock %}
